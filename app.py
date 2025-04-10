@@ -7,11 +7,11 @@ from email.message import EmailMessage
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'Input_Images'
-app.secret_key = 'your-secure-key-here'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 # Gmail SMTP credentials (replace these with your real Gmail credentials)
-GMAIL_USER = 'raaz.74to@gmail.com'
-GMAIL_PASS = 'cfga pstz bysy mjty'  # Use an App Password, not your actual Gmail password
+GMAIL_USER = os.environ.get('GMAIL_USER')
+GMAIL_PASS = os.environ.get('GMAIL_PASS')  # Use an App Password, not your actual Gmail password
 
 @app.route('/')
 def home():
