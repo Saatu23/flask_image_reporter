@@ -21,6 +21,9 @@ def home():
 def process_images():
     try:
         input_folder = app.config['UPLOAD_FOLDER']
+        # Clear previous uploads
+        if os.path.exists(input_folder):
+            shutil.rmtree(input_folder)
         os.makedirs(input_folder, exist_ok=True)
 
         files = request.files.getlist('images')
