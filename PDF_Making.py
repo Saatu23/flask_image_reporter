@@ -6,7 +6,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 
 # Register a custom font (e.g., Arial)
-pdfmetrics.registerFont(TTFont('Arial', 'arial.ttf'))
+# pdfmetrics.registerFont(TTFont('Arial', 'arial.ttf'))
 
 import math
 def format_stats_text(stats_text, layer_number):
@@ -254,7 +254,7 @@ def create_pdf_report(image_folder, stats_folder, output_pdf, logo_path,layer_co
 
         text_obj = c.beginText()
         text_obj.setTextOrigin(x_text_start, y_text_start)
-        text_obj.setFont("Arial", 8)  
+        text_obj.setFont("Helvetica", 8)  
         text_obj.setLeading(9)       
 
         for line in filtered_lines:
