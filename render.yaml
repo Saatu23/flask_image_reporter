@@ -2,8 +2,6 @@ services:
   - type: web
     name: image-report-generator
     env: python
-    buildCommand: ./build.sh
-    startCommand: ./start.sh
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
