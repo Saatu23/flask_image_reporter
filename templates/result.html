@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Ready</title>
+    <style>
+        /* Background & global styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            overflow: hidden;
+            padding: 2rem 1rem;
+            color: white;
+            text-align: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle, #00ffe0 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: pulse 3s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .preview-container {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 224, 0.2);
+            margin: 2rem auto;
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .download-button {
+            margin-top: 1rem;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #00ffe0;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .download-button:hover {
+            background-color: #00ccba;
+            transform: scale(1.05);
+        }
+
+        h2 {
+            z-index: 1;
+            margin-top: 50px;
+        }
+
+        .logo-bar {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            right: 0;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 75px;
+            width: auto;
+        }
+
+        .left-logo {
+            align-self: flex-start;
+        }
+
+        .right-logo {
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo Container -->
+    <div class="logo-bar">
+        <a href="/">
+            <img src="{{ url_for('static', filename='Logic_Magic.png') }}" alt="Left Logo" class="logo left-logo">
+        </a>
+        <a href="#">
+            <img src="{{ url_for('static', filename='IIT_BHU_Logo.png') }}" alt="Right Logo" class="logo right-logo">
+        </a>
+    </div>
+
+    <h2>✅ Your report is ready!</h2>
+
+    <div class="preview-container">
+        <h3>Preview:</h3>
+        <iframe src="/static/Quality-Report.pdf#toolbar=0"></iframe>
+    </div>
+
+    <a href="/download" class="download-button">Download PDF</a>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.env
+Input_Images/
+static/Quality-Report.pdf

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: image-report-generator
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_PASS
+        sync: false
