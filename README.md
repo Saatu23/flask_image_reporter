@@ -24,7 +24,11 @@ It analyzes image regions, computes stats, and generates automated PDF reports w
 
 ## 📸 Screenshots
 
-![Demo GIF](demo.gif)
+### 🔼 Image Upload Interface
+![Upload Page](upload_page.jpg)
+
+### 🧾 Defect Report Output
+![Report Page](report_result.jpg)
 
 ## 📦 Setup Instructions
 
