@@ -37,3 +37,10 @@ git clone https://github.com/Saatu23/flask_image_reporter.git
 cd flask_image_reporter
 pip install -r requirements.txt
 python app.py
+```
+
+### 🙋‍♂️ Author
+
+**Satyam Kumar Mishra**  
+📧 satyammishra20102004@gmail.com  
+🔗 [GitHub](https://github.com/Saatu23)
