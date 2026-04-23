@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file, redirect, url_for, session
 import os
+import sys
 import shutil
 import subprocess
 import smtplib
@@ -34,7 +35,7 @@ def process_images():
             if file.filename:
                 file.save(os.path.join(input_folder, file.filename))
 
-        subprocess.run(["python", "Master_Script.py", input_folder], check=True)
+        subprocess.run([sys.executable, "Master_Script.py", input_folder], check=True)
 
         pdf_path = "Quality-Report.pdf"
         if not os.path.exists(pdf_path):
