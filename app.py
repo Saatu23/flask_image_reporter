@@ -3,6 +3,7 @@ import os
 import sys
 import shutil
 import subprocess
+import threading
 import smtplib
 from email.message import EmailMessage
 
@@ -53,11 +54,15 @@ def process_images():
         shutil.move(pdf_path, static_pdf_path)
 
         emails_input = request.form.get("emails", "").strip()
-        if emails_input:
-            session['emails'] = emails_input
-            send_email_with_report(emails_input)
 
-        return redirect(url_for('result'))
+        if emails_input:
+            thread = threading.Thread(
+                target=send_email_with_report,
+                args=(emails_input,)
+            )
+            thread.start()
+        
+        return redirect(url_for("result"))
 
     except Exception as e:
         return f"Error during processing: {str(e)}"
