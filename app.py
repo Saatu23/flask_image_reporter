@@ -21,11 +21,19 @@ def home():
 @app.route('/process', methods=['POST'])
 def process_images():
     try:
-        input_folder = app.config['UPLOAD_FOLDER']
-        # Clear previous uploads
-        if os.path.exists(input_folder):
-            shutil.rmtree(input_folder)
-        os.makedirs(input_folder, exist_ok=True)
+        folders_to_clear = [
+            "Input_Images",
+            "Compatible_Input",
+            "Processed_Images",
+            "Processed_Stats"
+        ]
+        
+        for folder in folders_to_clear:
+            if os.path.exists(folder):
+                shutil.rmtree(folder)
+            os.makedirs(folder, exist_ok=True)
+        
+        input_folder = "Input_Images"
 
         files = request.files.getlist('images')
         if not files or all(file.filename == '' for file in files):
